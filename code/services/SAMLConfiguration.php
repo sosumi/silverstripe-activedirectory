@@ -48,7 +48,7 @@ class SAMLConfiguration extends Object
         $spKeyPath = Director::is_absolute($sp['privateKey']) ? $sp['privateKey'] : sprintf('%s/%s', BASE_PATH, $sp['privateKey']);
         $conf['sp']['entityId'] = $sp['entityId'];
         $conf['sp']['assertionConsumerService'] = [
-            'url' => $sp['entityId'] . '/saml/acs',
+            'url' => Director::absoluteBaseURL() . 'saml/acs',
             'binding' => OneLogin_Saml2_Constants::BINDING_HTTP_POST
         ];
         $conf['sp']['NameIDFormat'] = isset($sp['nameIdFormat']) ? $sp['nameIdFormat'] : OneLogin_Saml2_Constants::NAMEID_TRANSIENT;
